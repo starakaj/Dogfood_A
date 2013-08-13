@@ -22,3 +22,23 @@ In any case, I've now got a very simple patch that illustrates throwing two plan
 So it's trivial to get some planes flying around in front of a background. I could add some alpha to each of those objects and see what happens.
 
 Okay, so I found this image online of a bunch of text on a white background. I'm checking it in now.
+
+==> Commit 948b83218fdf57d9eaea393fa6c26a9dad6aaa1e
+
+Now I'm thinking it would be cool to automate the process of cutting that image up. What I'd like to do would be to take the source image and find all connected regions that are darker than some cutoff. Then I need those separate images, preferrably as a dictionary mapping names->resources. I'm making a new patch called auto-chopper.maxpat to experiment with this.
+
+! So I'm building up an image processing pipeline. The first step is to grab a source image. Next I convert it to grayscale, then I pass it through cv.jit.threshold to convert it to binary data. Here's the rub, though. Say I've got a processing pipeline that looks like this:
+
+A -> B -> C
+
+Now, in production, I'm going to pass a matrix to A, then A is going to do something to that matrix and pass it to B, and finally B is going to do something to that matrix and pass it to C. The trouble is, in testing, I know A and B are working, but C isn't giving me what I expect. It would be nice to be able to quickly "save" the output of B, so that I can test C in isolation.
+
+Anyway, back to the image pipeline. Once I've got everything thresholded the way I want, the next step is to extract the bounding regions. First thing to note is that I happened to know that the best way to get this data was to use the cv.jit.blobs.bounds object, but I had no real way of knowing that a priori. How could I have found that out?
+
+! Fortunately, the google search "max msp jitter extract connected regions image" does in fact point to the page for the cv.jit.* objects. A similar search on the website, however, isn't quite so helpful. Without restricting the search to the forum, the first page I encounter is for jitter tutorial 4: controlling video playback. Clicking on the forum tab, the third search result (out of five) is at least relevant, though it's not perfect.
+
+After playing around for awhile, I'm at least able to parse the information coming out of cv.jit.blobs.bounds into a form that I can understand. Using the subpatcher debug_draw, I'm able to use jit.mgraphics to draw the bounding rectangles.
+
+! Trying to figure out what format the information coming out of cv.jit.blobs.bounds was in was not easy. It turns out that the format was relatively straightforward: four planes of matrix data, with each plane storing left, top, right and bottom of each bounding rectangle, respectively. However, the relative opacity of the data in this matrix makes it extremely hard to figure out how to work with it. Basically, I got lucky. I took the data coming out of cv.jit.blobs.bounds and passes it to a jit.matrixinfo object. That object told me that there were 4 planes, each with a single dimension of size 98. I was able to infer the representation format, but being able to look at and explore the data would have been much, much more helpful. I hate to reference a brett victor video, but see Drawing Dynamic Visualizations.
+
+! Finally, at several points in this patch, it would have been useful to have save states. Have you ever played a ROM? Save states are awesome.
