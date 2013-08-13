@@ -52,3 +52,13 @@ Now I'm ready to make the final lunge, I think. In the end, I'm going to want a 
 The next commit has the working version of the patch, before I've had a chance to clean it up.
 
 ==> Commit 80323436892b0df21b211907a3412e06d29f4cf3
+
+Now I've cleaned it up, at least a little bit.
+
+==> Commit b704976fd080e71d16bbf85feafb71719bd9dded
+
+Finally, to cap the day off with something interesting, let's make a quick patch that at least displays some of those images as textures.
+
+! Wait, some images come off the HD in rgba format, but they go into jit.gl.texture in argb format? Come now. This is completely ridiculous
+
+Okay, I am having some seriously crazy nonlinear texture interactions.
