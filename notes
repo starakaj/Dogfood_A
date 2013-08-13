@@ -50,3 +50,5 @@ Now I'm ready to make the final lunge, I think. In the end, I'm going to want a 
 ! srcdimstart and srcdimend, dstdimstart and dstdimend do not seem like smart ways of working with matrix data, in my mind. How exactly to fix it remains to be discussed, but what exists right now is not good enough.
 
 The next commit has the working version of the patch, before I've had a chance to clean it up.
+
+==> Commit 80323436892b0df21b211907a3412e06d29f4cf3
