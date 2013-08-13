@@ -42,3 +42,11 @@ After playing around for awhile, I'm at least able to parse the information comi
 ! Trying to figure out what format the information coming out of cv.jit.blobs.bounds was in was not easy. It turns out that the format was relatively straightforward: four planes of matrix data, with each plane storing left, top, right and bottom of each bounding rectangle, respectively. However, the relative opacity of the data in this matrix makes it extremely hard to figure out how to work with it. Basically, I got lucky. I took the data coming out of cv.jit.blobs.bounds and passes it to a jit.matrixinfo object. That object told me that there were 4 planes, each with a single dimension of size 98. I was able to infer the representation format, but being able to look at and explore the data would have been much, much more helpful. I hate to reference a brett victor video, but see Drawing Dynamic Visualizations.
 
 ! Finally, at several points in this patch, it would have been useful to have save states. Have you ever played a ROM? Save states are awesome.
+
+==> Commit ce402b6d9b618490703ac9c6b3be96ec9cec872e
+
+Now I'm ready to make the final lunge, I think. In the end, I'm going to want a folder that contains a whole bunch of chopped-up images.
+
+! srcdimstart and srcdimend, dstdimstart and dstdimend do not seem like smart ways of working with matrix data, in my mind. How exactly to fix it remains to be discussed, but what exists right now is not good enough.
+
+The next commit has the working version of the patch, before I've had a chance to clean it up.
