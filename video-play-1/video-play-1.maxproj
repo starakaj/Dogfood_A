@@ -2,7 +2,7 @@
 	"name" : "video-play-1",
 	"version" : 1,
 	"creationdate" : 3459223490,
-	"modificationdate" : 3459224133,
+	"modificationdate" : 3459235305,
 	"viewrect" : [ 43.0, 93.0, 300.0, 500.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
@@ -14,6 +14,14 @@
 				"kind" : "patcher",
 				"local" : 1,
 				"toplevel" : 1
+			}
+
+		}
+,
+		"media" : 		{
+			"urban_scrawl_1.png" : 			{
+				"kind" : "imagefile",
+				"local" : 1
 			}
 
 		}

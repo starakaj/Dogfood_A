@@ -8,7 +8,7 @@
 			"architecture" : "x64"
 		}
 ,
-		"rect" : [ 560.0, 227.0, 808.0, 582.0 ],
+		"rect" : [ 490.0, 168.0, 808.0, 582.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -360,8 +360,10 @@
 					"maxclass" : "attrui",
 					"numinlets" : 1,
 					"numoutlets" : 1,
+					"orientation" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 320.0, 163.0, 191.0, 20.0 ]
+					"patching_rect" : [ 320.0, 163.0, 95.5, 40.0 ],
+					"presentation_rect" : [ 0.0, 0.0, 0.0, 40.0 ]
 				}
 
 			}

@@ -17,4 +17,8 @@ All I need to do, I figure, is set up a scene in openGL, throw some shit in it a
 
 In any case, I've now got a very simple patch that illustrates throwing two planes into an openGL scene, and then moving the camera around a bit to demonstrate parallax
 
-==> Commit 
+==> Commit 653b36293d59b3eb5b5eaffede19da69b6365ab6
+
+So it's trivial to get some planes flying around in front of a background. I could add some alpha to each of those objects and see what happens.
+
+Okay, so I found this image online of a bunch of text on a white background. I'm checking it in now.
