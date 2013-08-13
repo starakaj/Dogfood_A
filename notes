@@ -1,8 +1,20 @@
-Eating our own dogfood, chapter 1: Trying to make some interesting visuals.
------------------------------------------------------------------------------
+Dogfood A: Trying to make some interesting visuals
+=============================================================================
 
+August 13, 2013
+-----------------------------------------------------------------------------
 So here I am in Max. I'm feeling inspired, though I don't necessarily have any idea how to get started. 
 
 Maybe, I think, I'll go for a living Basquiat type style. That could be interesting--2D shapes sticking out and shifting somewhat non-deterministically.
 
 I make a patch.
+
+==> Commit b7f734f7fe03aa219386eb015bcfb5d8c7f54361
+
+All I need to do, I figure, is set up a scene in openGL, throw some shit in it and start moving my camera around.
+
+! Okay, one thing I notice right away that's super annoying is that every time I want to save the state of a jitter object, I have to make an attrui object for it, then name that attrui, then double-check that the state of the jitter object is actually saved. That's not cool. Oh, wait, pattr doesn't support attrui. Are you fucking kidding me? Then how do I save the state of a jitter object?
+
+In any case, I've now got a very simple patch that illustrates throwing two planes into an openGL scene, and then moving the camera around a bit to demonstrate parallax
+
+==> Commit 
